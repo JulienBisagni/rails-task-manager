@@ -1,0 +1,18 @@
+<div class="container-fluid m-3">
+  <div class="row">
+    <h1>My tasks</h1>
+  </div>
+  <% @tasks.each do |t| %>
+    <% completed = t.completed ? '[x]' : '[ ]'  %>
+    <div>
+      <%= link_to mark_as_completed_path(t), method: :put do %>
+        <span><%= completed %></span>
+      <% end %>
+      <%= link_to t.title, task_path(t)%>
+      <%= link_to '- Delete', destroy_task_path(t), method: :delete %>
+    </div>
+  <% end %>
+  <div class="mt-5">
+    <%= link_to '+ Add new task', tasks_new_path %>
+  </div>
+</div>

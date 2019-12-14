@@ -1,0 +1,21 @@
+<div class="container-fluid m-3">
+  <div class="row">
+    <h1>Edit task</h1>
+  </div>
+  <%= form_for @task do |f| %>
+    <div class="form-group">
+      <%= f.label :title, "Enter a title"%>
+      <%= f.text_field :title, class:"form-control"%>
+    </div>
+    <div class="form-group">
+      <%= f.label :details, "Give me some details"%>
+      <%= f.text_field :details, class:"form-control"%>
+    </div>
+    <div class="form-group">
+      <%= check_box_tag(:completed) %>
+      <%= label_tag(:completed, "Task completed") %>
+    </div>
+    <%= f.submit 'Edit new task', class: "btn btn-primary mb-3"%>
+  <%end%>
+    <%= link_to 'Back to list', tasks_path%>
+</div>
